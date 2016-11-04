@@ -4,11 +4,14 @@
 FROM node:7.0.0
 MAINTAINER Jujhar Singh <jujhar@jujhar.com>
 
+RUN npm install supervisor -g
+
 #environment variables
 ENV NODE_PORT 8080
 ENV NODE_ENV development
 ENV LOG_PATH /var/log
 ENV LOG_LEVEL info
+ENV SUPPRESS_NO_CONFIG_WARNING yes-potatos
 
 ADD app /app
 

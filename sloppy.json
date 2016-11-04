@@ -1,0 +1,31 @@
+{
+  "project": "grd-class-payments",
+  "services": [
+    {
+      "id": "node-js",
+      "apps": [
+        {
+          "env": {
+            "NODE_ENV": "production",
+            "NODE_PORT": "80"
+          },
+          "domain": {
+            "uri": "grd-class-payments.sloppy.zone"
+          },
+          "mem": 256,
+          "image": "jujhars13/grd-class-payments",
+          "instances": 0,
+          "id": "node-js",
+          "health_checks": [],
+          "volumes": [],
+          "port_mappings": [
+            {
+              "container_port": 80,
+              "protocol": "tcp"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

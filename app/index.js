@@ -7,14 +7,21 @@ if (process.env.NODE_ENV === 'undefined') {
 
 const config = require('config');
 const logger = require('./lib/logger')(process.env.LOG_PATH, process.env.LOG_LEVEL);
+
+
 const express = require('express');
 const helmet = require('helmet');
-
+const bodyParser = require('body-parser');
 const app = express();
 
+//routes
+const routePayment = require('./routes/payment');
+
 app.use(helmet());
+app.use(bodyParser.json());
 
 logger.info('***Running in ' + process.env.NODE_ENV.toUpperCase() + ' on Node ' + process.version + '***');
+
 
 /**
  * default route
@@ -23,6 +30,10 @@ app.get('/', function (req, res) {
     res.json({status: 'ok'});
 });
 
+/**
+ * payment routes
+ */
+app.use('/payment', routePayment);
 
 
 app.listen(process.env.NODE_PORT, function () {
