@@ -4,7 +4,7 @@
 FROM node:7.0.0
 MAINTAINER Jujhar Singh <jujhar@jujhar.com>
 
-RUN npm install supervisor -g
+#RUN npm install supervisor -g
 
 #environment variables
 ENV NODE_PORT 8080

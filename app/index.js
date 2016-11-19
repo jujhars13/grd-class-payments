@@ -1,8 +1,8 @@
 'use strict';
 
 if (process.env.NODE_ENV === 'undefined') {
-    console.error('You must define an NODE_ENV to run in');
-    process.exit(1);
+	console.error('You must define an NODE_ENV to run in');
+	process.exit(1);
 }
 
 const config = require('config');
@@ -27,7 +27,7 @@ logger.info('***Running in ' + process.env.NODE_ENV.toUpperCase() + ' on Node ' 
  * default route
  */
 app.get('/', function (req, res) {
-    res.json({status: 'ok'});
+	res.json({status: 'ok'});
 });
 
 /**
@@ -37,5 +37,9 @@ app.use('/payment', routePayment);
 
 
 app.listen(process.env.NODE_PORT, function () {
-    logger.info('listening on port', process.env.NODE_PORT);
+	logger.info('listening on port', process.env.NODE_PORT);
 });
+
+//TODO
+process.on('SIGTERM', () => { server.close() .then() => Promise.all([ db1.disconnect() db2.disconnect() ]) .then(() => process.exit(0)) .catch((err) => process.exit(-1)) }) 
+
